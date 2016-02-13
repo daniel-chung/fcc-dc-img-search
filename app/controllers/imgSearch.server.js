@@ -15,49 +15,49 @@ function imgSearchServer () {
   this.search = function (req, res) {
 
   // Set up the Google Search API
-		var googAPI = "https://www.googleapis.com/customsearch/v1";
-		var searchStr = req.params.searchStr;
-		var customeEngine = process.env.GOOG_CSE;
-		var safety = "medium";
-		var offSet = req.query.offset || 1;
-		var key = process.env.GOOG_KEY;
-		var queryString = querystring.stringify({
-			q: searchStr,
-			cx: customeEngine,
-			num: 10,
-			safe: safety,
-			start: offSet,
-			key: key,
-			searchType: "image"
-		});
+    var googAPI = "https://www.googleapis.com/customsearch/v1";
+    var searchStr = req.params.searchStr;
+    var customeEngine = process.env.GOOG_CSE;
+    var safety = "medium";
+    var offSet = req.query.offset || 1;
+    var key = process.env.GOOG_KEY;
+    var queryString = querystring.stringify({
+      q: searchStr,
+      cx: customeEngine,
+      num: 10,
+      safe: safety,
+      start: offSet,
+      key: key,
+      searchType: "image"
+    });
 
   // Main function that calls the Google Search API
-		request(googAPI+"?"+queryString, function (error, result, body) {
-		  if (!error && result.statusCode == 200) {
+    request(googAPI+"?"+queryString, function (error, result, body) {
+      if (!error && result.statusCode == 200) {
 
       // Create a record of the search into our database to resurface
         addSearch();
 
       // Return the image search result
-				var searchOutput = JSON.parse(result.body).items.map(function(e) {
-					var newObj = {};
-					newObj.url = e.link || "";
-					newObj.snippet = e.snippet || "";
-					newObj.thumbnail = e.image.thumbnailLink || "";
-					newObj.context = e.image.contextLink || "";
-					return newObj;
-				});
-				res.json(searchOutput);
-		  }
-		});
+        var searchOutput = JSON.parse(result.body).items.map(function(e) {
+          var newObj = {};
+          newObj.url = e.link || "";
+          newObj.snippet = e.snippet || "";
+          newObj.thumbnail = e.image.thumbnailLink || "";
+          newObj.context = e.image.contextLink || "";
+          return newObj;
+        });
+        res.json(searchOutput);
+      }
+    });
 
   // Helper function
     function addSearch() {
       PastSearches.find({}, function (err, hist) {
         if (err)
           throw err;
-        else {
 
+        else {
         // Delete the oldest record n > 10 to ensure we only show recent history
           if (hist.length > 9) {
             PastSearches.findOneAndRemove({}, function(err) {

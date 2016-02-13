@@ -10,15 +10,15 @@ var ImgSearchServer = require(path + '/app/controllers/imgSearch.server.js');
 // Main index function ---------------------------------------------------------
 module.exports = function (app) {
 
-  // Server side controllers ---------------------------------------------- //
+	// Server side controllers ---------------------------------------------- //
 	var imgSearchServer = new ImgSearchServer();
 
 
-  // HOME PAGE (with login links) ----------------------------------------- //
+	// HOME PAGE (with login links) ----------------------------------------- //
 	app.route('/')
 		.get(function(req, res) {
 			res.sendFile(path + '/view/index.html');
-		});
+	});
 
 
 	// API CALLS ------------------------------------------------------------ //
