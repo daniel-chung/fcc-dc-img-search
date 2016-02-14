@@ -27,7 +27,6 @@ routes(app);
 
 // HTML routes -----------------------------------------------------------------
 app.use('/view', express.static(process.cwd() + '/view'));
-app.use('/libraries', express.static(process.cwd() + '/libraries'));
 
 
 // Start server ----------------------------------------------------------------
