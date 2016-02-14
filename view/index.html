@@ -3,10 +3,54 @@
 <html>
 
 <head>
+  <link rel="stylesheet" type="text/css" href="/view/main.css">
 </head>
 
 <body>
-  <h1>Image Search Abstraction Layer</h1>
+
+  <div class="content">
+    <h1>
+      FCC:<br>
+      Image Search Abstraction Layer
+    </h1>
+    <br>
+
+    <h3>Search images:</h3>
+    <div class="sub-block">
+      <h4>Search for "lol cats"</h4>
+      <code class="link">
+        <div>
+          <a href="https://fcc-dc-img-search.herokuapp.com/api/imagesearch/lol%20cats">
+          https://fcc-dc-img-search.herokuapp.com/api/imagesearch/<span class="emphasis">lol%20cats</span>
+          </a>
+        </div>
+      </code>
+
+      <h4>Search for "lol cats" but show links from page 10</h4>
+      <code class="link">
+        <div>
+          <a href="https://fcc-dc-img-search.herokuapp.com/api/imagesearch/lol%20cats?offset=10">
+          https://fcc-dc-img-search.herokuapp.com/api/imagesearch/lol%20cats<span class="emphasis">?offset=10</span>
+          </a>
+        </div>
+      </code>
+    </div>
+    <br>
+
+    <h3>Get the last 10 searches:</h3>
+    <div class="sub-block">
+      <code class="link">
+        <div>
+          <a href="http://fcc-dc-img-search.herokuapp.com/api/latest/imagesearch">
+          http://fcc-dc-img-search.herokuapp.com/api/latest/imagesearch
+          </a>
+        </div>
+      </code>
+    </div>
+    <br>
+
+  </div>
+
 </body>
 
 </html>

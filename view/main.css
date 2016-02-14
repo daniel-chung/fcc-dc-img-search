@@ -1,0 +1,52 @@
+body {
+  font-size: 14px;
+  font-family: sans-serif;
+  padding: 4em 0;
+}
+
+/* Give the HTML content some buffer on the sides */
+div.content {
+  margin: auto;
+  width: 65%;
+}
+
+/* Format headings */
+h1, h3, h4 {
+  margin-bottom: 0.1em;
+  font-weight: 300;
+}
+h1 {
+  font-weight: 500;
+  font-size: 4em;
+  margin-left: -0.5em;
+}
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1.25em;
+}
+
+/* All text (e.g., desription & code snippets) are offset from the headings */
+.sub-block {
+    margin-left: 2em;
+}
+
+/* Give code-like styling to JSON & URI links
+ * Inspired by: [Rainbow](https://craig.is/making/rainbows)
+ */
+code div {
+  background: #E7EFFE;
+  padding: 1em;
+}
+code.link a {
+  text-decoration: none;
+  color: #1C86EE;
+}
+code.link a:hover {
+  text-decoration: underline;
+  color: #104E8B;
+}
+code .emphasis {
+  color: #EB6772;
+}
